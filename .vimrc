@@ -1,0 +1,1 @@
+/home/kissg/.vimrc
