@@ -24,15 +24,25 @@ set foldlevelstart=0
 
 syntax enable                   " the following commands are set for solarized, the colorscheme
 set background=dark
-"let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 set t_Co=256
-colorscheme solarized
+" colorscheme solarized
+colorscheme evening
 
 "set my leader key
 let mapleader = "-"
 "set my localleader
 let maplocalleader = "\\"
 " }}}
+
+" emmet.vim settings -------------------------------{{{
+
+let g:user_emmet_mode = "inv"   " enable all functions in all mode.
+" enable just for html/css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+"}}}
 
 " Status Line settings ------------------------{{{
 set statusline=%<%f             " Path to the file
@@ -50,12 +60,13 @@ set statusline+=\ %P            " show percent
 augroup filetype_python
     autocmd!
     autocmd filetype python     nnoremap <buffer> <localleader>c I#<esc>
-    autocmd filetype python     iabbrev  <buffer>  ptt   #!/usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr>''<cr><cr>__author__ = 'Engine'<cr><cr><esc>I
+    autocmd filetype python     iabbrev  <buffer>  ptt   #!/usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr>''<cr><cr>__author__ = 'Engine'
     autocmd filetype python     iabbrev <buffer> iff if:<left>
+    autocmd filetype python     iabbrev  <buffer>  ifn if<space>__name__<space>==<space>'__main__':<cr>
 augroup END
 " }}}
 
-" JavaScript  file settings ------------------------{{{
+" JavaScript file settings ------------------------{{{
 augroup filetype_js
     autocmd!
     autocmd filetype javascript nnoremap <buffer> <localleader>c I//<esc>
@@ -73,20 +84,28 @@ augroup END
 " markdown file settings ------------------------{{{
 augroup filetype_markdown
     autocmd!
+    "autocmd filetype markdown   colorscheme default 
     autocmd filetype markdown   inoremap <buffer> <localleader>/ <esc>I><space><esc>A
-    autocmd filetype markdown   inoremap <buffer> <localleader>b ****<left><left>
-    autocmd filetype markdown   inoremap <buffer> <localleader>i **<left><esc>
+    autocmd filetype markdown   inoremap <buffer> <localleader>bb ****<left>
+    autocmd filetype markdown   inoremap <buffer> <localleader>ii **<left>
+    autocmd filetype markdown   inoremap <buffer> <localleader>`` ``<left>
+
+    
     autocmd filetype markdown   onoremap <buffer> ih1 :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
     autocmd filetype markdown   onoremap <buffer> ah1 :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
     autocmd filetype markdown   onoremap <buffer> ih2 :<c-u>execute "normal! ?^--\\+$\r:nohlsearch\rkvg_"<cr>
     autocmd filetype markdown   onoremap <buffer> ah2 :<c-u>execute "normal! ?^--\\+$\r:nohlsearch\rg_vk0"<cr>
+    autocmd filetype markdown   iabbrev  <buffer> mdtt ---<cr>layout:<tab><tab>post<cr>title:<cr>subtitle:<cr>date:<cr>author:<cr>header-img:<cr>tas:<cr><tab>-<space><cr>---
+
 augroup END
 " }}}
 
-" html file settings ------------------------{{{
+" html,css file settings ------------------------{{{
 augroup filetype_html
     autocmd!
+    " close the block
     auto filetype html nnoremap <buffer> <localleader>f Vatzf
+    
 augroup END
 " }}}
 
@@ -126,6 +145,7 @@ nnoremap L $
 inoremap jk <esc> 
 inoremap :: <esc>
 inoremap (     ()<left>
+inoremap ()    ()
 inoremap ))     <right>
 inoremap {     {}<left>
 inoremap }}      <right>
