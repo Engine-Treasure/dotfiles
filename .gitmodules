@@ -1,6 +1,6 @@
 [submodule ".vim/bundle/vim-fugitive"]
     path = .vim/bundle/vim-fugitive
-    url = git://github.com/tpope/vim-fugitive.git
+    url = https://github.com/tpope/vim-fugitive
 [submodule ".vim/bundle/ctrlp.vim"]
     path = .vim/bundle/ctrlp.vim
     url = https://github.com/ctrlpvim/ctrlp.vim
@@ -19,15 +19,17 @@
 [submodule ".vim/bundle/Syntastic"]
     path = .vim/bundle/Syntastic
     url = https://github.com/scrooloose/syntastic
-[submodule ".vim/bundle/emmet.vim-airline"]
+[submodule ".vim/bundle/vim-airline"]
     path = .vim/bundle/vim-airline
     url = https://github.com/vim-airline/vim-airline
 [submodule ".vim/bundle/vim-airline-themes"]
     path = .vim/bundle/vim-airline-themes
     url = https://github.com/vim-airline/vim-airline-themes
+    ignore = dirty
 [submodule ".vim/bundle/vim-bad-whitespace"]
     path = .vim/bundle/vim-bad-whitespace
     url = https://github.com/bitc/vim-bad-whitespace
+    ignore = dirty
 [submodule ".vim/bundle/vim-colors-solarized"]
     path = .vim/bundle/vim-colors-solarized
     url = https://github.com/altercation/vim-colors-solarized
@@ -37,6 +39,7 @@
 [submodule ".vim/bundle/YouCompleteMe"]
     path = .vim/bundle/YouCompleteMe
     url = https://github.com/Valloric/YouCompleteMe
+    ignore = dirty
 [submodule ".vim/bundle/Zenburn"]
     path = .vim/bundle/Zenburn
     url = https://github.com/jnurmine/Zenburn
