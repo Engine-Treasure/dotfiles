@@ -4,8 +4,8 @@
 [submodule ".vim/bundle/ctrlp.vim"]
     path = .vim/bundle/ctrlp.vim
     url = https://github.com/ctrlpvim/ctrlp.vim
-[submodule ".vim/bundle/emmet.vim"]
-    path = .vim/bundle/emmet.vim
+[submodule ".vim/bundle/emmet-vim"]
+    path = .vim/bundle/emmet-vim
     url = https://github.com/mattn/emmet-vim
 [submodule ".vim/bundle/indentpython.vim--nianyang"]
     path = .vim/bundle/indentpython.vim--nianyang
@@ -16,8 +16,8 @@
 [submodule ".vim/bundle/SimpylFold"]
     path = .vim/bundle/SimpylFold
     url = https://github.com/tmhedberg/SimpylFold
-[submodule ".vim/bundle/Syntastic"]
-    path = .vim/bundle/Syntastic
+[submodule ".vim/bundle/syntastic"]
+    path = .vim/bundle/syntastic
     url = https://github.com/scrooloose/syntastic
 [submodule ".vim/bundle/vim-airline"]
     path = .vim/bundle/vim-airline
