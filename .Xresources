@@ -1,0 +1,130 @@
+xterm*faceName: DejaVu Sans Mono Book
+xterm*faceNameDoublesize: WenQuanYi Micro Hei Mono
+xterm*faceSize: 14
+xterm*cjkWidth: flase
+xterm*cursorBlink: true
+
+! someone says 80 columns is not just a good idea, it is the law
+xterm*vt100*geometry: 167x69
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+xterm*loginshell: true
+
+! I like a LOT of scrollback...
+xterm*savelines: 16384
+
+! double-click to select whole URLs :D
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! right hand side scrollbar...
+xterm*rightScrollBar: true
+xterm*ScrollBar: true
+
+! stop output to terminal from jumping down to bottom of scroll again
+xterm*scrollTtyOutput: false
+
+! set term explicitly
+xterm*termName: xterm-256color
+
+! make xterm interpret all incoming data as utf-8 encoded
+xterm*locale: true
+
+! fix the 'alt' key
+xterm*eightBitInput: false
+xterm*altSendEscape: true
+
+! mouse selecting to copy, c-v to paste, c-p to print screen content to file
+XTerm*VT100.Translations: #override \
+    Ctrl <KeyPress> V: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+    <BtnUp>: select-end(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+    Ctrl <KeyPress> P: print() \n
+
+
+! Zenburn Terminal Color Scheme
+!BLK Cursor
+#define _color0        #000d18
+#define _color8        #000d18
+
+!RED Tag
+#define _color1        #e89393
+#define _color9        #e89393
+
+!GRN SpecialKey
+#define _color2        #9ece9e
+#define _color10       #9ece9e
+
+!YEL Keyword
+#define _color3        #f0dfaf
+#define _color11       #f0dfaf
+
+!BLU Number
+#define _color4        #8cd0d3
+#define _color12       #8cd0d3
+
+!MAG Precondit
+#define _color5        #c0bed1
+#define _color13       #c0bed1
+
+!CYN Float
+#define _color6        #dfaf8f
+#define _color14       #dfaf8f
+
+!WHT Search
+#define _color7        #efefef
+#define _color15       #efefef
+
+!FMT Include, StatusLine, ErrorMsg
+#define _colorBD       #ffcfaf
+#define _colorUL       #ccdc90
+#define _colorIT       #80d4aa
+
+!TXT Normal, Normal, Cursor
+#define _foreground    #dcdccc
+#define _background    #1f1f1f
+#define _cursorColor   #8faf9f
+
+!URxvt*color0         : _color0
+!URxvt*color1         : _color1
+!URxvt*color2         : _color2
+!URxvt*color3         : _color3
+!URxvt*color4         : _color4
+!URxvt*color5         : _color5
+!URxvt*color6         : _color6
+!URxvt*color7         : _color7
+!URxvt*color8         : _color8
+!URxvt*color9         : _color9
+!URxvt*color10        : _color10
+!URxvt*color11        : _color11
+!URxvt*color12        : _color12
+!URxvt*color13        : _color13
+!URxvt*color14        : _color14
+!URxvt*color15        : _color15
+!URxvt*colorBD        : _colorBD
+!URxvt*colorIT        : _colorIT
+!URxvt*colorUL        : _colorUL
+!URxvt*foreground     : _foreground
+!URxvt*background     : _background
+!URxvt*cursorColor    : _cursorColor
+
+xterm*color0         : _color0
+xterm*color1         : _color1
+xterm*color2         : _color2
+xterm*color3         : _color3
+xterm*color4         : _color4
+xterm*color5         : _color5
+xterm*color6         : _color6
+xterm*color7         : _color7
+xterm*color8         : _color8
+xterm*color9         : _color9
+xterm*color10        : _color10
+xterm*color11        : _color11
+xterm*color12        : _color12
+xterm*color13        : _color13
+xterm*color14        : _color14
+xterm*color15        : _color15
+xterm*colorBD        : _colorBD
+xterm*colorIT        : _colorIT
+xterm*colorUL        : _colorUL
+xterm*foreground     : _foreground
+xterm*background     : _background
+xterm*cursorColor    : _cursorColor

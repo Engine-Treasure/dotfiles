@@ -1,10 +1,11 @@
 
 " __author__ = \"Engine\"
-" __date__   = 2016-04-01
+" __date__   = 2016-05-03
 
 " Basic Settings -------------{{{
 " I use pathogen to manage my vim plugins, so add this command above all other commands to make all plugins work well.
 execute pathogen#infect()
+" set nocompatible
 syntax on
 filetype plugin indent on
 
@@ -38,6 +39,7 @@ else
     colorscheme zenburn
 endif
 
+set backspace=indent,eol,start  " same as set backspace=2
 
 set splitbelow                  " splitting a window will put the new window below the current one
 set splitright                  " similar to splitbelow, right to the current one
@@ -45,6 +47,7 @@ set splitright                  " similar to splitbelow, right to the current on
 " enable folding
 " set foldmethod=indent
 " set foldlevelstart=99
+:set timeout ttimeout timeoutlen=300 ttimeoutlen=10
 
 let python_highlight_all=1
 
@@ -56,6 +59,7 @@ let maplocalleader = "\\"
 
 " YouCompleteMe settings -------------------------------{{{
 
+let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_autoclose_preview_window_after_completion=1
 " shortcut for go to definition or declaration
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -91,7 +95,7 @@ augroup filetype_python
     autocmd!
     autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
     autocmd filetype python     nnoremap <buffer> <localleader>c I#<esc>
-    autocmd filetype python     iabbrev  <buffer>  ptt   #!/usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr>''<cr><cr>__author__ = 'Engine'
+    autocmd filetype python     iabbrev  <buffer>  ptt   #!/usr/bin/env python3<cr># -*- coding: utf-8 -*-<cr><cr>''''''<cr><cr>__author__ = 'Engine'<cr><cr>
     autocmd filetype python     iabbrev <buffer> iff if:<left>
     autocmd filetype python     iabbrev  <buffer>  ifn if<space>__name__<space>==<space>'__main__':<cr>
 augroup END
@@ -171,10 +175,10 @@ augroup END
 " }}}
 
 " syntastic settings ------------------------{{{
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 augroup syntastic
     autocmd!
@@ -198,15 +202,10 @@ augroup flake8
 augroup END
 " }}}
 
-" airline settings ------------------------{{{
-let g:airline_powerline_fonts=1
-let g:airline_theme="luna"
-let g:airline_detect_modified=1
-let g:airline_detect_paste=1
-let g:airline_detect_crypt=1
-let g:airline_detect_spell=2
-let g:airline_detect_iminsert=0
-let g:airline#extensions#branch#enabled = 1
+" surround settings ------------------------{{{
+augroup surround
+    autocmd!
+augroup END
 " }}}
 
 " Mappings ---------------------------------------{{{
@@ -232,24 +231,29 @@ inoremap <leader>" "<esc>hbi"<esc>lela
 " Upper the word's first letter
 nnoremap <leader>u viwbU
 " remap 'H' & 'L'
-nnoremap H 0
+nnoremap H ^
 nnoremap L $
 
 " enable folding with space
 nnoremap <space> za
 " set a <esc> abbreviation key
-inoremap jk <esc> 
+inoremap jk <esc>
 inoremap :: <esc>
-inoremap (     ()<left>
-inoremap ()    ()
-inoremap ))     <right>
-inoremap {     {}<left>
-inoremap }}      <right>
-inoremap [     []<left>
-inoremap ]]      <right>
-inoremap <     <><left>
+inoremap ()     ()<left>
+"inoremap ()    ()
+"inoremap ))     <right>
+inoremap {}     {}<left>
+"inoremap }}      <right>
+inoremap []     []<left>
+"inoremap ]]      <right>
+inoremap <>     <><left>
 inoremap >>     <right>
+inoremap <<     <left>
 inoremap ""    ""<left>
+inoremap %%    %%<left>
+inoremap <c-b> ****<left><left>
+inoremap <c-i> **<left><left>
+
 
 onoremap in( :<c-u>normal! f(vi(<cr>
 onoremap ip( :<c-u>normal! F)vi(<cr>
