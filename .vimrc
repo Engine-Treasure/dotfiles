@@ -1,7 +1,6 @@
-" Basic Settings -------------{{{
-"
 execute pathogen#infect()
 execute pathogen#helptags()
+
 filetype plugin indent on
 syntax on
 
@@ -37,8 +36,9 @@ let mapleader = "-"
 "set my localleader
 let maplocalleader = "\\"
 
+highlight MatchParen cterm=none ctermbg=red ctermfg=black
+
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
-" }}}
 
 " Status Line settings ------------------------{{{
 set statusline=%<%f             " Path to the file
@@ -141,6 +141,21 @@ inoremap jk <esc>
 " remap 'H' & 'L'
 nnoremap H ^
 nnoremap L $
+nnoremap yg vg_y
+nnoremap U viwU
+
+nnoremap <C-a> ggVG
+
+vnoremap ` di``<esc>P
+vnoremap " di""<esc>P
+vnoremap ' di''<esc>P
+vnoremap * di**<esc>P
+vnoremap ( di()<esc>P
+vnoremap [ di[]<esc>P
+vnoremap < di<><esc>P
+
+vnoremap <space> di<space><space><esc>P
+
 
 " open .vimrc in a vertical split window instantly
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>

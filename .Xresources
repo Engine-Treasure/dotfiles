@@ -1,11 +1,11 @@
 xterm*faceName: DejaVu Sans Mono Book
 xterm*faceNameDoublesize: WenQuanYi Micro Hei Mono
-xterm*faceSize: 14
+xterm*faceSize: 12
 xterm*cjkWidth: flase
 xterm*cursorBlink: true
 
 ! someone says 80 columns is not just a good idea, it is the law
-xterm*vt100*geometry: 167x69
+xterm*vt100*geometry: 87x67
 
 ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
 xterm*loginshell: true
