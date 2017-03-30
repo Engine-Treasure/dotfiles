@@ -92,29 +92,42 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $ws1 main
+set $ws2 term
+set $ws4 other
+set $ws5 teamviewer
+set $ws9 wechat
+set $ws10 www
+
+workspace 1 output DP1
+workspace 2 output DP1
+workspace 4 output eDP1
+workspace 9 output eDP1
+workspace 10 output eDP1
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace 1 $ws1
+bindsym $mod+2 workspace 2 $ws2
+bindsym $mod+3 workspace 3 $ws3
+bindsym $mod+4 workspace 4 $ws4
+bindsym $mod+5 workspace 5 $ws5
+bindsym $mod+6 workspace 6 $ws6
+bindsym $mod+7 workspace 7 $ws7
+bindsym $mod+8 workspace 8 $ws8
+bindsym $mod+9 workspace 9 $ws9
+bindsym $mod+0 workspace 10 $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1 $ws1
+bindsym $mod+Shift+2 move container to workspace 2 $ws2
+bindsym $mod+Shift+3 move container to workspace 3 $ws3
+bindsym $mod+Shift+4 move container to workspace 4 $ws4
+bindsym $mod+Shift+5 move container to workspace 5 $ws5
+bindsym $mod+Shift+6 move container to workspace 6 $ws6
+bindsym $mod+Shift+7 move container to workspace 7 $ws7
+bindsym $mod+Shift+8 move container to workspace 8 $ws8
+bindsym $mod+Shift+9 move container to workspace 9 $ws9
+bindsym $mod+Shift+0 move container to workspace 10 $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -122,6 +135,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# i3lock immediately
+bindsym $mod+q exec i3lock -detectsleep -c 000000
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -149,21 +165,23 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-xmodmap -e "clear lock" #disable caps lock switch
-xmodmap -e "keysym Caps_Lock = Ctrl" #set caps_lock as ctrl
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
+        tray_output primary
         position top
 }
 
 # startup
-# exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 000000'
-exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
-exec --no-startup-id i3-msg 'workspace 10 other; exec /usr/bin/ss-qt5'
-# exec --no-startup-id i3-msg 'workspace 10 other; exec /usr/bin/synergy' 
-# exec --no-startup-id i3-msg 'workspace 10 other; exec /home/vic/.nutstore/dist/bin/nutstore-pydaemon.py'
-exec --no-startup-id i3-msg 'workspace 1 WWW; exec /usr/bin/google-chrome'
-exec --no-startup-id i3-msg 'workspace 3 GFX; exec /usr/bin/nautilus'
+exec --no-startup-id xautolock -time 10 -locker 'i3lock -detectsleep -c 000000'
+exec --no-startup-id setxkbmap -layout us -option ctrl:nocaps
+exec --no-startup-id i3-msg 'workspace 4 other; exec /usr/bin/dropbox'
+exec --no-startup-id i3-msg 'workspace 4 other; exec /home/kissg/.nutstore/dist/bin/nutstore-pydaemon.py'
+exec --no-startup-id i3-msg 'workspace 4 other; exec /home/kissg/.dropbox-dist/dropboxd'
+exec --no-startup-id i3-msg 'workspace 4 other; exec /usr/bin/ss-qt5'
+exec --no-startup-id i3-msg 'workspace 10 www;  exec /usr/bin/google-chrome-stable'
+exec --no-startup-id i3-msg 'workspace 9 wechat;  exec /usr/bin/google-chrome-stable'
+# exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
+# exec --no-startup-id i3-msg 'workspace 4 GFX; exec /usr/bin/nautilus'
+# exec --no-startup-id i3-msg 'workspace 10 other; exec /usr/bin/synergy'
