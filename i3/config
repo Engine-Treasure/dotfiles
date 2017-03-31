@@ -96,12 +96,15 @@ set $ws1 main
 set $ws2 term
 set $ws4 other
 set $ws5 teamviewer
+set $ws6 gxf
 set $ws9 wechat
 set $ws10 www
 
 workspace 1 output DP1
 workspace 2 output DP1
 workspace 4 output eDP1
+workspace 5 output eDP1
+workspace 6 output eDP1
 workspace 9 output eDP1
 workspace 10 output eDP1
 
@@ -137,7 +140,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # i3lock immediately
-bindsym $mod+q exec i3lock -detectsleep -c 000000
+bindsym $mod+q exec i3lock -c 000000
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -174,14 +177,14 @@ bar {
 }
 
 # startup
-exec --no-startup-id xautolock -time 10 -locker 'i3lock -detectsleep -c 000000'
+exec --no-startup-id xautolock -time 10 -locker 'i3lock -c 000000'
+# remap capslock to ctrl
 exec --no-startup-id setxkbmap -layout us -option ctrl:nocaps
-exec --no-startup-id i3-msg 'workspace 4 other; exec /usr/bin/dropbox'
+# for natrual scrolling
+exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-30
 exec --no-startup-id i3-msg 'workspace 4 other; exec /home/kissg/.nutstore/dist/bin/nutstore-pydaemon.py'
 exec --no-startup-id i3-msg 'workspace 4 other; exec /home/kissg/.dropbox-dist/dropboxd'
 exec --no-startup-id i3-msg 'workspace 4 other; exec /usr/bin/ss-qt5'
+exec --no-startup-id i3-msg 'workspace 6 gfx; exec /usr/bin/nautilus'
 exec --no-startup-id i3-msg 'workspace 10 www;  exec /usr/bin/google-chrome-stable'
-exec --no-startup-id i3-msg 'workspace 9 wechat;  exec /usr/bin/google-chrome-stable'
-# exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
-# exec --no-startup-id i3-msg 'workspace 4 GFX; exec /usr/bin/nautilus'
-# exec --no-startup-id i3-msg 'workspace 10 other; exec /usr/bin/synergy'
+# exec --no-startup-id i3-msg 'workspace 4 other; exec /usr/bin/synergy'
