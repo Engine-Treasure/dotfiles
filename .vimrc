@@ -119,10 +119,15 @@ let Tlist_File_Fold_Auto_Close=1             " 自动折叠
 
 " }}}
 
+" vim-markdown -------------{{{
+let g:vim_markdown_folding_disabled = 1
+
+" }}}
+
 " nerdtree -------------{{{
 map <C-n> :NERDTreeToggle<CR>
 " Start NERDTree
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 " Go to previous (last accessed) window.
 autocmd VimEnter * wincmd p
 
@@ -153,6 +158,12 @@ vnoremap * di**<esc>P
 vnoremap ( di()<esc>P
 vnoremap [ di[]<esc>P
 vnoremap < di<><esc>P
+vnoremap {} di{}<esc>P
+vnoremap $ di$$<esc>P
+vnoremap $$ di$$$$<left><esc>P
+vnoremap _ di__<esc>P
+vnoremap ~ di~~<esc>P
+
 
 vnoremap <space> di<space><space><esc>P
 

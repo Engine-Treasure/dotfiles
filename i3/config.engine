@@ -1,0 +1,4 @@
+exec --no-startup-id i3-msg 'workspace 4 other; exec /usr/bin/ss-qt5'
+exec --no-startup-id i3-msg 'workspace 4 other; exec /home/kissg/.nutstore/dist/bin/nutstore-pydaemon.py'
+exec --no-startup-id i3-msg 'workspace 6 gxf; exec /usr/bin/nautilus'
+exec --no-startup-id i3-msg 'workspace 10 www;  exec /usr/bin/google-chrome-stable'
